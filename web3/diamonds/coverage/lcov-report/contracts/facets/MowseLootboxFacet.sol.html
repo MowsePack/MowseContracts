@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\facets\MowseLootboxFacet.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/facets/</a> MowseLootboxFacet.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.44% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>38/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.89% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>23/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.31% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.12% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>48/51</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-yes">55×</span>
+<span class="cline-any cline-yes">55×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+import "hardhat/console.sol";
+/*************************************************************************
+___  ___                       
+|  \/  |                                          ___
+| .  . | _____      _____  ___           _  _  .-'   '-.
+| |\/| |/ _ \ \ /\ / / __|/ _ \         (.)(.)/         \   
+| |  | | (_) \ V  V /\__ \  __/          /@@             ;
+\_|  |_/\___/ \_/\_/ |___/\___|         o_\\-mm-......-mm`~~~~~~~~~~~~~~~~` 
+                               
+/*************************************************************************/
+&nbsp;
+import "@openzeppelin/contracts/utils/Strings.sol";
+&nbsp;
+import { LibDiamond } from "../libraries/LibDiamond.sol";
+import "../libraries/SlothVerifiableDelay.sol";
+&nbsp;
+import { WithStorage } from "../libraries/LibStorage.sol"; 
+&nbsp;
+import { MowseWearFacet } from "./MowseWearFacet.sol";
+import { AccessControlFacet } from "./AccessControlFacet.sol";
+import { GameStorageFacet } from "./GameStorageFacet.sol";
+&nbsp;
+contract MowseLootboxFacet is WithStorage {
+  using Strings for uint256;
+&nbsp;
+  event MowseLootboxChosen(address player, uint256 tokenId);
+&nbsp;
+  modifier notPaused() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(!gs().paused, "Contract is paused");
+    _;
+  }
+  function getMowseLootboxData(uint8 index) external view returns (string memory lootboxName, uint256 lootboxPrice, bool lootboxActive, uint256[] memory lootboxPool) {
+    uint256[] memory lootPool = new uint256[](gs().mowselootboxes[index].itemCount);
+    for(uint16 i = 0; i &lt; gs().mowselootboxes[index].itemCount; i++) {
+      lootPool[i] = gs().mowselootboxes[index].lootPool[i];
+    }
+    return (gs().mowselootboxes[index].name, gs().mowselootboxes[index].price, gs().mowselootboxes[index].active, lootPool);
+  }
+  function purchaseMowseLootbox(uint8 index) external <span class="missing-if-branch" title="else path not taken" >E</span>notPaused {
+    uint256 lootboxPrice = gs().mowselootboxes[index].price;
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(gs().mowsegold.balanceOf(msg.sender) &gt; lootboxPrice, 'MowseLootbox/Not enough funds');
+    require(gs().mowselootboxes[index].active, 'MowseLootbox/Loot pool not active');
+    require(gs().mowselootboxes[index].itemCount &gt; 0, 'MowseLootbox/No items in loot pool');
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(gs().mowsegold.transferFrom(msg.sender, address(GameStorageFacet(gs().diamondAddress)), lootboxPrice), 'MowseLootbox/Payment not successful');
+    uint256 currentMowseWearTokenId = gs().mowseWearTokenIdCounter;
+&nbsp;
+    randomlyMintLootboxItem(index, msg.sender);
+&nbsp;
+    emit MowseLootboxChosen(msg.sender, currentMowseWearTokenId);
+&nbsp;
+    GameStorageFacet(gs().diamondAddress).testPatchInteraction(msg.sender);
+  }
+  function stitchMowseLootbox(address sender) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only Admin addresses can perform this action");
+    // Randomly stitch something from index12 lootpool (all mowsewear)
+    randomlyMintLootboxItem(12, sender);
+  }
+  function randomlyMintLootboxItem(uint8 index, address sender) internal {
+    // first get vdf seed
+    uint256 vdfSeed = uint256(keccak256(abi.encodePacked(sender, gs().mowseLootboxNonce++, block.timestamp, blockhash(block.number - 1))));
+    uint256 currentMowseWearTokenId = gs().mowseWearTokenIdCounter;
+    gs().mowseLootboxTokenIdToSeed[currentMowseWearTokenId] = vdfSeed;
+    // mint using this seed
+    uint16 randomLootPoolIndex = uint16(vdfSeed % gs().mowselootboxes[index].itemCount);
+    uint256 dictionaryIndex = gs().mowselootboxes[index].lootPool[randomLootPoolIndex];
+    uint8 traitType = gs().mowseWearDictionaryByDictionaryIndex[dictionaryIndex].traitType;
+    uint16 traitIndex = gs().mowseWearDictionaryByDictionaryIndex[dictionaryIndex].traitIndex;
+&nbsp;
+    MowseWearFacet(gs().diamondAddress).mintMowseWear(sender, traitType, traitIndex, 0);
+  }
+  // index is the loot pool index; [0-11] are trait type specific, [12] is general pool, 13+ are any other specific pools
+  function updateMowseLootboxItem(uint8 index, uint256 dictionaryIndex, bool justAdding, uint16 poolIndex) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only Admin addresses can perform this action");
+    
+    // if justAdding = true, ignore poolIndex
+    if (justAdding) {
+      gs().mowselootboxes[index].lootPool[gs().mowselootboxes[index].itemCount] = dictionaryIndex;
+      gs().mowselootboxes[index].itemCount++;
+    } else {
+      require(poolIndex &lt; gs().mowselootboxes[index].itemCount, 'MowseLootbox/Cannot update non-existent lootbox item');
+      // only update traitType and traitIndex
+      gs().mowselootboxes[index].lootPool[poolIndex] = dictionaryIndex;
+    }
+  }
+  
+  
+  function _prove(uint256 proof, uint256 seed) internal view returns (bool) {
+    return SlothVerifiableDelay.verify(proof, seed, gs().mowseLootboxPrime, gs().mowseLootboxIterations);
+  }
+&nbsp;
+  function getProofById(uint256 tokenId) external view returns (uint256) {
+    require(gs().mowseLootboxTokenIdToSeed[tokenId] != 0, 'MowseLootbox/mowsewear not minted from lootbox');
+    return SlothVerifiableDelay.compute(gs().mowseLootboxTokenIdToSeed[tokenId], gs().mowseLootboxPrime, gs().mowseLootboxIterations);
+  }
+  function proveById(uint256 tokenId, uint256 proof) external view returns (bool) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(gs().mowseLootboxTokenIdToSeed[tokenId] != 0, 'MowseLootbox/mowsewear not minted from lootbox');
+    if (_prove(proof, gs().mowseLootboxTokenIdToSeed[tokenId])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+&nbsp;
+  function resetMowseLootbox(uint8 index) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only Admin addresses can perform this action");
+    // de-active lootbox during reset
+    gs().mowselootboxes[index].active = false;
+    uint16 currentItemCount = gs().mowselootboxes[index].itemCount;
+    for (uint16 i = 0; i &lt; currentItemCount; i++) {
+      delete gs().mowselootboxes[index].lootPool[i];
+    }
+&nbsp;
+    gs().mowselootboxes[index].itemCount = 0;
+  }
+  function setMowseLootboxActive(uint8 index, bool active) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only Admin addresses can perform this action");
+    gs().mowselootboxes[index].active = active;
+  }
+<span class="fstat-no" title="function not covered" >  function setMowseLootboxPrice(uint8 index, uint256 price) external {</span>
+<span class="cstat-no" title="statement not covered" >    require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only Admin addresses can perform this action")</span>;
+    gs().mowselootboxes[index].price = price;
+  }
+  function setMowseLootboxName(uint8 index, string memory name) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only Admin addresses can perform this action");
+    <span class="missing-if-branch" title="if path not taken" >I</span>require(bytes(name).length &gt; 0, "MowseLootbox/Lootbox must have a name");
+    gs().mowselootboxes[index].name = name;
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2023 18:01:37 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

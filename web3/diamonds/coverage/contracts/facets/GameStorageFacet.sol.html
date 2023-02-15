@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\facets\GameStorageFacet.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/facets/</a> GameStorageFacet.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>18/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40.63% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.53% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+import "hardhat/console.sol";
+/*************************************************************************
+___  ___                       
+|  \/  |                                          ___
+| .  . | _____      _____  ___           _  _  .-'   '-.
+| |\/| |/ _ \ \ /\ / / __|/ _ \         (.)(.)/         \   
+| |  | | (_) \ V  V /\__ \  __/          /@@             ;
+\_|  |_/\___/ \_/\_/ |___/\___|         o_\\-mm-......-mm`~~~~~~~~~~~~~~~~` 
+                               
+/*************************************************************************/
+&nbsp;
+import { LibDiamond } from "../libraries/LibDiamond.sol";
+&nbsp;
+import { WithStorage } from "../libraries/LibStorage.sol"; 
+import { AccessControlFacet } from "./AccessControlFacet.sol";
+&nbsp;
+contract GameStorageFacet is WithStorage {
+  modifier onlyAdminOrCore() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(<span class="branch-0 cbranch-no" title="branch not covered" >msg.sender == gs().diamondAddress</span> || msg.sender == LibDiamond.contractOwner(), "Only the Core or Admin addresses can perform this action");
+    _;
+  }
+  modifier testPatchExists(uint256 patchVersion) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(gs().testPatchCount &gt;= patchVersion, 'Test Patch does not exist');
+    _;
+&nbsp;
+  }
+<span class="fstat-no" title="function not covered" >  function isPaused() external view returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >    return gs().paused;</span>
+  }
+  function getMowseTokenIdCounter() external view returns (uint256) {
+    return gs().mowseTokenIdCounter;
+  }
+&nbsp;
+  // For MowseGames
+  function setHasPurchasedMowseGold(address account) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only MowseGame Admin addresses can perform this action");
+    gs().hasPurchasedMowseGold[account] = true;
+  }
+&nbsp;
+  // Claim MGOLD
+<span class="fstat-no" title="function not covered" >  function getMowseGoldToClaim(address account) public view returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >    return gs().initialMowseGoldClaimList[account];</span>
+  }
+<span class="fstat-no" title="function not covered" >  function setMowseGoldToClaim(address account, uint256 amount) public {</span>
+<span class="cstat-no" title="statement not covered" >    require(AccessControlFacet(gs().diamondAddress).hasMowseAdminRole(msg.sender), "Only MowseGame Admin addresses can perform this action")</span>;
+    gs().initialMowseGoldClaimList[account] = amount;
+  }
+<span class="fstat-no" title="function not covered" >  function claimInitialMowseGold(address account) external {</span>
+<span class="cstat-no" title="statement not covered" >    require(getMowseGoldToClaim(account) &gt; 0, "GameStorage/No MGOLD to claim")</span>;
+<span class="cstat-no" title="statement not covered" >    gs().mowsegold.mint(account, getMowseGoldToClaim(account))</span>;
+<span class="cstat-no" title="statement not covered" >    setMowseGoldToClaim(account, 0)</span>;
+  }
+&nbsp;
+  // TestPatch methods
+  function getPatchVersion() external view returns (uint256) {
+    return gs().testPatchCount;
+  }
+  function getUniqueInteractionCount(uint256 patchVersion) external view <span class="missing-if-branch" title="else path not taken" >E</span>testPatchExists(patchVersion) returns(uint256) {
+    return gs().testPatches[patchVersion].uniqueInteractionCount;
+  }
+  function getInteractedAddresses(uint256 patchVersion) external view <span class="missing-if-branch" title="else path not taken" >E</span>testPatchExists(patchVersion) returns (address[] memory) {
+    return gs().testPatches[patchVersion].interactedAddresses;
+  }
+  function getNumberOfInteractionsByAddress(uint256 patchVersion, address account) external view <span class="missing-if-branch" title="else path not taken" >E</span>testPatchExists(patchVersion) returns (uint256) {
+    return gs().testPatches[patchVersion].numberOfInteractions[account];
+  }
+  function testPatchInteraction(address account) external {
+    uint256 patchVersion = gs().testPatchCount;
+    if (gs().testPatches[patchVersion].numberOfInteractions[account] == 0) {
+      gs().testPatches[patchVersion].uniqueInteractionCount++;
+      gs().testPatches[patchVersion].interactedAddresses.push(account);
+    }
+    gs().testPatches[patchVersion].numberOfInteractions[account]++;
+  }
+  function nextPatch() external <span class="missing-if-branch" title="else path not taken" >E</span>onlyAdminOrCore {
+    gs().testPatchCount++;
+    gs().testPatches[gs().testPatchCount].testPatchVersion++;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function setTreasuryAddress(address newTreasuryAddress) external onlyAdminOrCore {</span>
+    gs().treasuryAddress = newTreasuryAddress;
+  }
+<span class="fstat-no" title="function not covered" >  function pause(bool _state) external onlyAdminOrCore {</span>
+    gs().paused = _state;
+  }
+  function approveMowseGold(address recipient) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyAdminOrCore {
+    uint256 approve_amount = 115792089237316195423570985008687907853269984665640564039457584007913129639935; //(2^256 - 1 )
+    // Approve unlimited
+    gs().mowsegold.approve(recipient, approve_amount);
+  }
+  function withdraw() public <span class="missing-if-branch" title="else path not taken" >E</span>onlyAdminOrCore {
+    uint256 mowseGoldBalance = gs().mowsegold.balanceOf(address(this));
+    console.log('Withdraw', mowseGoldBalance);
+    gs().mowsegold.transferFrom(address(this), gs().treasuryAddress, mowseGoldBalance);
+&nbsp;
+    (bool os,) = payable(gs().treasuryAddress).call{value: address(this).balance}("");
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(os);
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2023 18:01:37 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

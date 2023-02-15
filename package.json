@@ -1,0 +1,50 @@
+{
+  "name": "mowsegamepoc",
+  "version": "1.0.0",
+  "description": "Mowse communities come together",
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "start": "node server"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.9",
+    "nodemon": "^2.0.20",
+    "npm-run-all": "^4.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mars/heroku-cra-node.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "create-react-app",
+    "react"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@ethersproject/bignumber": "^5.7.0",
+    "@ethersproject/units": "^5.7.0",
+    "@nomiclabs/buidler": "^1.4.8",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.5",
+    "@openzeppelin/contracts": "^4.8.1",
+    "@openzeppelin/contracts-upgradeable": "^4.8.1",
+    "@openzeppelin/hardhat-upgrades": "^1.22.1",
+    "@solidstate/contracts": "^0.0.52",
+    "hardhat": "^2.12.6",
+    "hardhat-contract-sizer": "^2.7.0",
+    "hardhat-deploy": "^0.11.23",
+    "hardhat-deploy-ethers": "^0.3.0-beta.13"
+  }
+}

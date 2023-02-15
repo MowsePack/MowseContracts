@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\MowseGold.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> MowseGold.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>16/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.14% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>34/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+import "hardhat/console.sol";
+/*************************************************************************
+___  ___                       
+|  \/  |                                          ___
+| .  . | _____      _____  ___           _  _  .-'   '-.
+| |\/| |/ _ \ \ /\ / / __|/ _ \         (.)(.)/         \   
+| |  | | (_) \ V  V /\__ \  __/          /@@             ;
+\_|  |_/\___/ \_/\_/ |___/\___|         o_\\-mm-......-mm`~~~~~~~~~~~~~~~~` 
+                               
+/*************************************************************************/
+&nbsp;
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-ERC20PermitUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol";
+&nbsp;
+import { GameStorageFacet } from "./facets/GameStorageFacet.sol";
+&nbsp;
+contract MowseGold is Initializable, ERC20Upgradeable, ERC20BurnableUpgradeable, AccessControlUpgradeable, ERC20PermitUpgradeable, UUPSUpgradeable {
+  using StringsUpgradeable for uint256;
+&nbsp;
+  bytes32 public constant MINTER_ROLE = keccak256("MOWSEGOLD_MINTER_ROLE");
+  bytes32 public constant UPGRADER_ROLE = keccak256("MOWSEGOLD_UPGRADER_ROLE");
+&nbsp;
+  uint256 public MOWSE_GOLD_MINT_PRICE;
+  address private owner;
+  address public diamondAddress;
+  address payable public teamAddress;
+  address payable public backendAddress;
+  address payable public treasuryAddress;
+  uint256 public backendTaxBasisPoints;
+  uint256 public teamTaxBasisPoints;
+&nbsp;
+  error DidNotSendToTeam();
+  error DidNotSendToBackend();
+  error DidNotSendToTreasury();
+  /// @custom:oz-upgrades-unsafe-allow constructor
+  constructor() {
+    _disableInitializers();
+  }
+&nbsp;
+  function initialize(address _diamondAddress, address _teamAddress, address _backendAddress, address _treasuryAddress) public <span class="missing-if-branch" title="else path not taken" >E</span>initializer {
+    __ERC20_init("MowseGold", "MGOLD");
+    __ERC20Burnable_init();
+    __AccessControl_init();
+    __ERC20Permit_init("MowseGold");
+    __UUPSUpgradeable_init();
+&nbsp;
+    _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    _grantRole(MINTER_ROLE, msg.sender);
+    _grantRole(UPGRADER_ROLE, msg.sender);
+    
+    // DEV: 0.05 FTM to help test mgold minting
+    setMowseGoldMintPrice(0.05 ether);
+    // setMowseGoldMintPrice(5 ether);
+    owner = msg.sender;
+    diamondAddress = _diamondAddress;
+    teamAddress = payable(_teamAddress);
+    backendAddress = payable(_backendAddress);
+    treasuryAddress = payable(_treasuryAddress);
+&nbsp;
+    // Backend Tax in basis points (default: 5% = 500)
+    backendTaxBasisPoints = 500;
+    teamTaxBasisPoints = 2500;
+  }
+&nbsp;
+  function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
+    _mint(to, amount);
+  }
+&nbsp;
+  function purchaseMowseGold() external payable {
+    require(MOWSE_GOLD_MINT_PRICE == msg.value, string(abi.encodePacked('Payment amount incorrect. 100 MowseGold costs ', MOWSE_GOLD_MINT_PRICE.toString(), 'FTM')));
+    _mint(msg.sender, 100000);  // DEV: 100000 MGOLD to help test mowse functions
+    // _mint(msg.sender, 100);
+    GameStorageFacet(diamondAddress).setHasPurchasedMowseGold(msg.sender);
+    GameStorageFacet(diamondAddress).testPatchInteraction(msg.sender);
+  }
+&nbsp;
+  function grantMinterRole(address to) external onlyRole(DEFAULT_ADMIN_ROLE) {
+    _grantRole(MINTER_ROLE, to);
+  }
+  function revokeMinterRole(address to) external onlyRole(DEFAULT_ADMIN_ROLE) {
+    _revokeRole(MINTER_ROLE, to);
+  }
+  function setMowseGoldMintPrice(uint256 price) public onlyRole(DEFAULT_ADMIN_ROLE) {
+    MOWSE_GOLD_MINT_PRICE = price;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function changeTeamAddress(address payable newTeamAddress) public onlyRole(DEFAULT_ADMIN_ROLE) {</span>
+    teamAddress = newTeamAddress;
+  }
+<span class="fstat-no" title="function not covered" >  function changeBackendAddress(address payable newBackendAddress) public onlyRole(DEFAULT_ADMIN_ROLE) {</span>
+    backendAddress = newBackendAddress;
+  }
+<span class="fstat-no" title="function not covered" >  function changeTreasuryAddress(address payable newTreasuryAddress) public onlyRole(DEFAULT_ADMIN_ROLE) {</span>
+    treasuryAddress = newTreasuryAddress;
+  }
+<span class="fstat-no" title="function not covered" >  function changeTeamTax(uint256 newTax) public onlyRole(DEFAULT_ADMIN_ROLE) {</span>
+    teamTaxBasisPoints = newTax;
+  }
+<span class="fstat-no" title="function not covered" >  function changeBackendTax(uint256 newTax) public onlyRole(DEFAULT_ADMIN_ROLE) {</span>
+    backendTaxBasisPoints = newTax;
+  }
+  function withdraw() public payable onlyRole(DEFAULT_ADMIN_ROLE) {
+    uint256 teamPayout = address(this).balance * teamTaxBasisPoints / 10000;
+    uint256 backendPayout = address(this).balance * backendTaxBasisPoints / 10000;
+    uint256 treasuryPayout = address(this).balance - teamPayout - backendPayout;
+    
+    (bool sentToTeam,) = teamAddress.call{value: teamPayout}("");
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!sentToTeam) revert DidNotSendToTeam();
+    (bool sentToBackend,) = backendAddress.call{value: backendPayout}("");
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!sentToBackend) revert DidNotSendToBackend();
+    (bool sendToTreasury,) = treasuryAddress.call{value: treasuryPayout}("");
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!sendToTreasury) revert DidNotSendToTreasury();
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE) {}</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2023 18:01:37 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

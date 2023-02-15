@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\facets\MowseWearFacet.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/facets/</a> MowseWearFacet.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.86% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>87/105</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.04% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>70/106</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.45% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>21/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>179/193</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-yes">149×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-yes">91×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+import "hardhat/console.sol";
+/*************************************************************************
+___  ___                       
+|  \/  |                                          ___
+| .  . | _____      _____  ___           _  _  .-'   '-.
+| |\/| |/ _ \ \ /\ / / __|/ _ \         (.)(.)/         \   
+| |  | | (_) \ V  V /\__ \  __/          /@@             ;
+\_|  |_/\___/ \_/\_/ |___/\___|         o_\\-mm-......-mm`~~~~~~~~~~~~~~~~` 
+                               
+/*************************************************************************/
+&nbsp;
+import { SolidStateERC721 } from "@solidstate/contracts/token/ERC721/SolidStateERC721.sol";
+import { ERC721Metadata } from "@solidstate/contracts/token/ERC721/metadata/ERC721Metadata.sol";
+import { IERC721Metadata } from "@solidstate/contracts/token/ERC721/metadata/IERC721Metadata.sol";
+&nbsp;
+import "@openzeppelin/contracts/utils/Strings.sol";
+&nbsp;
+import { LibDiamond } from "../libraries/LibDiamond.sol";
+import "../libraries/Randomness.sol";
+&nbsp;
+import { WithStorage, MowseWear, MowseSkillTypes, MowseWearMetadata, SKILL_TYPE_NUM, EQUIPPED_WEARABLE_SLOTS, BulkMowseWear } from "../libraries/LibStorage.sol"; 
+&nbsp;
+import { MowseFacet } from "./MowseFacet.sol";
+import { MowseVisualizerFacet } from "./MowseVisualizerFacet.sol";
+import { AccessControlFacet } from "./AccessControlFacet.sol";
+import { GameStorageFacet } from "./GameStorageFacet.sol";
+import { MowseLootboxFacet } from "./MowseLootboxFacet.sol";
+&nbsp;
+contract MowseWearFacet is WithStorage, SolidStateERC721 {
+  using Strings for uint256;
+  using Randomness for Randomness.RNG;
+&nbsp;
+  Randomness.RNG private _rng;
+&nbsp;
+  event MowseWearMinted(address player, uint256 tokenId);
+&nbsp;
+  modifier onlyAdmin() { 
+    require(msg.sender == LibDiamond.contractOwner(), "Only Admin address can perform this action");
+    _;
+  }
+  modifier notPaused() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(!gs().paused, "Contract is paused");
+    _;
+  }
+  modifier mowseWearMustExist(uint256 _tokenId) {
+    require(_exists(_tokenId) &amp;&amp; _tokenId != 0, "MowseWear/must-exist");
+    // require(gs().mowsewears[_tokenId].tokenId &gt; 0, "MowseWear/must-exist");
+    _;
+  }
+  modifier ownsMowseWear(uint256 mowseWearId) {
+    require(msg.sender == _ownerOf(mowseWearId), "MowseWear/User does not own MowseWear");
+    _;
+  }
+  error MowseWearIsTooWorn(uint256 mowseWearId, uint256 durability);
+  // Only used for mowsepack minting, other minting for general purposes
+  function mintAndWearMowseWear(address to, uint256 mowseId, uint8 traitType, uint16 traitIndex) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseWearMinterRole(msg.sender), 'MowseWear/Missing Minter Role');
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(bytes(gs().mowseWearDictionary[traitType][traitIndex].traitName).length &gt; 0, "MowseWear/Cannot find MowseWear");
+    // require(!gs().mowses[mowseId].mowsewearClaimed, "MowseWear/mowse-already-updated");
+&nbsp;
+    uint256 currentMowseWearTokenId = gs().mowseWearTokenIdCounter;
+    _mint(to, currentMowseWearTokenId);
+    gs().mowsewears[currentMowseWearTokenId].tokenId = currentMowseWearTokenId;
+    
+    _setupMowseWear(currentMowseWearTokenId, traitType, traitIndex, 0);
+&nbsp;
+    gs().mowseWearCountByTraitIndex[traitType][traitIndex]++;
+    gs().mowseWearCountByTraitType[traitType]++;
+&nbsp;
+    // Wear newly minted mowsewear
+    gs().mowses[mowseId].equippedMowseWearByTokenIds[traitType] = currentMowseWearTokenId;
+    gs().mowsewears[currentMowseWearTokenId].isEquipped = true;
+    gs().mowsewears[currentMowseWearTokenId].equippedBy = mowseId;
+    _updateMowseStats(mowseId);
+&nbsp;
+    gs().mowseWearTokenIdCounter++;
+  }
+  function stitchMowseWear(uint256 mowseWearId1, uint256 mowseWearId2, uint256 mowseWearId3) external <span class="missing-if-branch" title="else path not taken" >E</span>ownsMowseWear(mowseWearId1) <span class="missing-if-branch" title="else path not taken" >E</span>ownsMowseWear(mowseWearId2) ownsMowseWear(mowseWearId3) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(!gs().mowsewears[mowseWearId1].isEquipped &amp;&amp; !gs().mowsewears[mowseWearId2].isEquipped &amp;&amp; !gs().mowsewears[mowseWearId3].isEquipped, "MowseWear/MowseWear must be unequipped to stitch");
+&nbsp;
+    if (gs().mowsewears[mowseWearId1].durability &gt; block.timestamp) revert MowseWearIsTooWorn(mowseWearId1, gs().mowsewears[mowseWearId1].durability);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (gs().mowsewears[mowseWearId2].durability &gt; block.timestamp) revert MowseWearIsTooWorn(mowseWearId2, gs().mowsewears[mowseWearId2].durability);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (gs().mowsewears[mowseWearId3].durability &gt; block.timestamp) revert MowseWearIsTooWorn(mowseWearId3, gs().mowsewears[mowseWearId3].durability);
+&nbsp;
+    MowseLootboxFacet(gs().diamondAddress).stitchMowseLootbox(msg.sender);
+&nbsp;
+    gs().mowsewears[mowseWearId1].durability = block.timestamp + getDurabilityDays(mowseWearId1);
+    gs().mowsewears[mowseWearId2].durability = block.timestamp + getDurabilityDays(mowseWearId2);
+    gs().mowsewears[mowseWearId3].durability = block.timestamp + getDurabilityDays(mowseWearId3);
+&nbsp;
+    GameStorageFacet(gs().diamondAddress).testPatchInteraction(msg.sender);
+  }
+  function getDurabilityDays(uint256 mowseWearId) internal view returns (uint256 durabilityDays) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (gs().mowsewears[mowseWearId].bonuses.itemRarity == 0) return 7 days;
+<span class="cstat-no" title="statement not covered" >    if (gs().mowsewears[mowseWearId].bonuses.itemRarity == 1) <span class="cstat-no" title="statement not covered" >return 6 days;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (gs().mowsewears[mowseWearId].bonuses.itemRarity == 2) <span class="cstat-no" title="statement not covered" >return 5 days;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (gs().mowsewears[mowseWearId].bonuses.itemRarity == 3) <span class="cstat-no" title="statement not covered" >return 4 days;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (gs().mowsewears[mowseWearId].bonuses.itemRarity == 4) <span class="cstat-no" title="statement not covered" >return 3 days;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (gs().mowsewears[mowseWearId].bonuses.itemRarity == 5) <span class="cstat-no" title="statement not covered" >return 2 days;</span></span>
+  }
+  function wearMowseWear(uint256 mowseId, uint256 mowseWearId) external ownsMowseWear(mowseWearId) {
+    if (gs().mowsewears[mowseWearId].durability &gt; block.timestamp) revert MowseWearIsTooWorn(mowseWearId, gs().mowsewears[mowseWearId].durability);
+    uint8 traitType = gs().mowsewears[mowseWearId].metadata.traitType;
+    bool isEquippedCurrently = gs().mowses[mowseId].equippedMowseWearByTokenIds[traitType] == mowseWearId;
+    // Iff same mowseWear is equipped, unequip, else 
+    if (isEquippedCurrently) {
+      delete gs().mowses[mowseId].equippedMowseWearByTokenIds[traitType];
+      delete gs().mowsewears[mowseWearId].isEquipped;
+      delete gs().mowsewears[mowseWearId].equippedBy;
+    } else {
+      gs().mowses[mowseId].equippedMowseWearByTokenIds[traitType] = mowseWearId;
+      gs().mowsewears[mowseWearId].isEquipped = true;
+      gs().mowsewears[mowseWearId].equippedBy = mowseId;
+    }
+    _updateMowseStats(mowseId);
+    
+    GameStorageFacet(gs().diamondAddress).testPatchInteraction(msg.sender);
+  }
+  function mintMowseWear(address to, uint8 traitType, uint16 traitIndex, uint8 minRarity) external <span class="missing-if-branch" title="else path not taken" >E</span>notPaused {
+    require(AccessControlFacet(gs().diamondAddress).hasMowseWearMinterRole(msg.sender), 'MowseWear/Missing Minter Role');
+    require(bytes(gs().mowseWearDictionary[traitType][traitIndex].traitName).length &gt; 0, "MowseWear/Cannot find MowseWear");
+    uint256 currentMowseWearTokenId = gs().mowseWearTokenIdCounter;
+    console.log('Minted MowseWear ', currentMowseWearTokenId);
+&nbsp;
+    _mint(to, currentMowseWearTokenId);
+    gs().mowsewears[currentMowseWearTokenId].tokenId = currentMowseWearTokenId;
+    
+    _setupMowseWear(currentMowseWearTokenId, traitType, traitIndex, minRarity);
+&nbsp;
+    gs().mowseWearCountByTraitIndex[traitType][traitIndex]++;
+    gs().mowseWearCountByTraitType[traitType]++;
+    gs().mowseWearTokenIdCounter++;
+  }
+  function unequipAllMowseWear(uint256 tokenId) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(AccessControlFacet(gs().diamondAddress).hasMowseWearAdminRole(msg.sender), 'MowseWear/Missing MowseWear Admin Role');
+    for(uint8 i = 0; i &lt; EQUIPPED_WEARABLE_SLOTS; i++) {
+      uint256 equippedMowseWearTokenId = gs().mowses[tokenId].equippedMowseWearByTokenIds[i];
+      if (equippedMowseWearTokenId &gt; 0) {
+        delete gs().mowsewears[equippedMowseWearTokenId].isEquipped;
+        delete gs().mowsewears[equippedMowseWearTokenId].equippedBy;
+        delete gs().mowses[tokenId].equippedMowseWearByTokenIds[i];
+      }
+    }
+    _updateMowseStats(tokenId);
+  }
+  function getMowseWearNameFromDictionary(uint8 traitType, uint16 traitIndex) public view returns (string memory traitName){
+    require(bytes(gs().mowseWearDictionary[traitType][traitIndex].traitName).length &gt; 0, "MowseWear/Cannot find MowseWear");
+    
+    return gs().mowseWearDictionary[traitType][traitIndex].traitName;
+  }
+<span class="fstat-no" title="function not covered" >  function getMowseWearByDictionaryIndex(uint256 index) external view returns (string memory, string memory) {</span>
+<span class="cstat-no" title="statement not covered" >    require(index &lt; gs().mowseWearDictionaryCount, 'MowseWear/Invalid Dictionary Index')</span>;
+<span class="cstat-no" title="statement not covered" >    string memory name = gs().mowseWearDictionaryByDictionaryIndex[index].traitName;</span>
+<span class="cstat-no" title="statement not covered" >    uint8 traitType = gs().mowseWearDictionaryByDictionaryIndex[index].traitType;</span>
+<span class="cstat-no" title="statement not covered" >    uint16 traitIndex = gs().mowseWearDictionaryByDictionaryIndex[index].traitIndex;</span>
+<span class="cstat-no" title="statement not covered" >    string memory image = MowseVisualizerFacet(gs().diamondAddress).getMowseWearImageFromDictionary(traitType, traitIndex);</span>
+<span class="cstat-no" title="statement not covered" >    return (name, image);</span>
+  }
+  // For admin purposes to add multiple mowsewear at once using a script
+  function bulkAddMowseWearToDictionary(BulkMowseWear[] memory bulkMowseWear) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyAdmin {
+    for(uint256 i = 0; i &lt; bulkMowseWear.length; i++) {
+      addMowseWearToDictionary(
+        bulkMowseWear[i].traitType,
+        bulkMowseWear[i].traitName,
+        bulkMowseWear[i].nonSwappable,
+        bulkMowseWear[i].nonTransferrable,
+        bulkMowseWear[i].width,
+        bulkMowseWear[i].height,
+        bulkMowseWear[i].transform,
+        bulkMowseWear[i].style,
+        bulkMowseWear[i].image,
+        bulkMowseWear[i].weight,
+        bulkMowseWear[i].ignoreFromLootPool);
+    }
+  }
+  function addMowseWearToDictionary(
+    uint8 traitType, 
+    string memory traitName,
+    bool nonSwappable,
+    bool nonTransferrable,
+    uint16 width,
+    uint16 height,
+    string memory transform,
+    string memory style,
+    string memory image,
+    uint16 weight,
+    bool ignoreFromLootPool
+    ) public onlyAdmin {
+      console.log('Adding MowseWear to Dictionary', traitName);
+      <span class="missing-if-branch" title="else path not taken" >E</span>require(traitType &lt; EQUIPPED_WEARABLE_SLOTS, "MowseWear/Invalid TraitType");
+      require(bytes(traitName).length &gt; 0, "MowseWear/Must have trait name");
+      uint16 currentTraitIndex = gs().mowseWearDictionaryTraitCount[traitType];
+      console.log('Should add index', currentTraitIndex);
+      uint256 dictionaryIndex = gs().mowseWearDictionaryCount;
+      _updateMowseWearDictionary(
+        traitType, 
+        traitName, 
+        currentTraitIndex,
+        dictionaryIndex,
+        nonSwappable, 
+        nonTransferrable, 
+        width, 
+        height, 
+        transform, 
+        style, 
+        image, 
+        weight);
+&nbsp;
+      // For event items, don't add to loot pool. Manually add them as admin
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!ignoreFromLootPool) {  
+        // Add mowsewear to dictionary index
+        gs().mowseWearDictionaryByDictionaryIndex[dictionaryIndex] = gs().mowseWearDictionary[traitType][currentTraitIndex];
+        // Add mowseWear to general lootpool [12]
+        MowseLootboxFacet(gs().diamondAddress).updateMowseLootboxItem(12, dictionaryIndex, true, 0);
+        // Add to trait-specific lootpool [0-11]
+        MowseLootboxFacet(gs().diamondAddress).updateMowseLootboxItem(traitType, dictionaryIndex, true, 0);
+      }
+&nbsp;
+      gs().mowseWearDictionaryTraitCount[traitType]++;
+      gs().mowseWearDictionaryCount++;
+&nbsp;
+      console.log('Added ', dictionaryIndex, ' to dictionary');
+  }
+  function updateMowseWearDictionary(
+    uint8 traitType,
+    string memory traitName,
+    uint16 traitIndex,
+    bool nonSwappable,
+    bool nonTransferrable,
+    uint16 width,
+    uint16 height,
+    string memory transform,
+    string memory style,
+    string memory image,
+    uint16 weight
+    ) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyAdmin {
+      require(bytes(gs().mowseWearDictionary[traitType][traitIndex].traitName).length &gt; 0, "MowseWear/Cannot find MowseWear");
+      <span class="missing-if-branch" title="else path not taken" >E</span>require(traitType &lt; EQUIPPED_WEARABLE_SLOTS, "MowseWear/Invalid TraitType");
+      <span class="missing-if-branch" title="else path not taken" >E</span>require(bytes(traitName).length &gt; 0, "MowseWear/Must have trait name");
+      uint256 dictionaryIndex = gs().mowseWearDictionary[traitType][traitIndex].dictionaryIndex;
+      _updateMowseWearDictionary(
+      traitType, 
+      traitName, 
+      traitIndex, 
+      dictionaryIndex,
+      nonSwappable,
+      nonTransferrable,
+      width,
+      height,
+      transform,
+      style,
+      image,
+      weight);
+  }
+  function tokenURI(uint256 mowseWearTokenId) public view override(ERC721Metadata, IERC721Metadata) mowseWearMustExist(mowseWearTokenId) returns (string memory) {
+    return MowseVisualizerFacet(gs().diamondAddress).getMowseWearTokenURI(mowseWearTokenId);
+  }
+  function mowseWearExists(uint256 mowseWearTokenId) external view returns (bool) {
+    return _exists(mowseWearTokenId);
+  }
+  function hemMowseWear(uint256 mowseWearTokenId) external ownsMowseWear(mowseWearTokenId) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(!gs().mowsewears[mowseWearTokenId].isEquipped, "MowseWear/MowseWear must be unequipped to hem");
+    require(_isApprovedOrOwner(address(this), mowseWearTokenId), "MowseWear/MowseWear Contract must be approved to transfer");
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(gs().mowsegold.transferFrom(msg.sender, address(GameStorageFacet(gs().diamondAddress)), 1000), 'MowseWear/Payment not successful');
+    
+    (uint256 _randomness, uint256 _randomSeed) = _rng.getRandomRange(32767);
+    // 5% chance to burn when hemming
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (_randomness % 20 == 0) {
+      // Burned. Oofies.
+<span class="cstat-no" title="statement not covered" >      _burn(mowseWearTokenId)</span>;
+    } else {
+      (uint16 itemRarityIV, uint8 itemRarity, MowseSkillTypes memory mowseSkillTypes) = _setupBonuses(_randomness, uint16(_randomSeed), 0);
+      gs().mowsewears[mowseWearTokenId].bonuses.itemRarityIV = itemRarityIV;
+      gs().mowsewears[mowseWearTokenId].bonuses.itemRarity = itemRarity;
+      gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[0] = mowseSkillTypes.charisma;
+      gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[1] = mowseSkillTypes.constitution;
+      gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[2] = mowseSkillTypes.dexterity;
+      gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[3] = mowseSkillTypes.intelligence;
+      gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[4] = mowseSkillTypes.luck;
+      gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[5] = mowseSkillTypes.strength;
+      gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[6] = mowseSkillTypes.wisdom;
+    }
+&nbsp;
+    GameStorageFacet(gs().diamondAddress).testPatchInteraction(msg.sender);
+  }
+  function _setupMowseWear(uint256 mowseWearTokenId, uint8 traitType, uint16 traitIndex, uint8 minRarity) internal {
+    // get MowseWear from dictionary
+    MowseWearMetadata memory baseMetadata = gs().mowseWearDictionary[traitType][traitIndex];
+&nbsp;
+    gs().mowsewears[mowseWearTokenId].tokenId = mowseWearTokenId;
+    gs().mowsewears[mowseWearTokenId].metadata.traitType = traitType;
+    gs().mowsewears[mowseWearTokenId].metadata.traitName = baseMetadata.traitName;
+    gs().mowsewears[mowseWearTokenId].metadata.traitIndex = traitIndex;
+    gs().mowsewears[mowseWearTokenId].metadata.dictionaryIndex = baseMetadata.dictionaryIndex;
+    gs().mowsewears[mowseWearTokenId].metadata.nonSwappable = baseMetadata.nonSwappable;
+    gs().mowsewears[mowseWearTokenId].metadata.nonTransferrable = baseMetadata.nonTransferrable;
+&nbsp;
+    // set base dimensions (There may be future updates to modify svg elements/filters)
+    gs().mowsewears[mowseWearTokenId].metadata.baseDimensions.width = baseMetadata.baseDimensions.width;
+    gs().mowsewears[mowseWearTokenId].metadata.baseDimensions.height = baseMetadata.baseDimensions.height;
+    gs().mowsewears[mowseWearTokenId].metadata.baseDimensions.transform = baseMetadata.baseDimensions.transform;
+    gs().mowsewears[mowseWearTokenId].metadata.baseDimensions.style = baseMetadata.baseDimensions.style;
+    gs().mowsewears[mowseWearTokenId].metadata.baseDimensions.image = baseMetadata.baseDimensions.image;
+    gs().mowsewears[mowseWearTokenId].metadata.baseDimensions.weight = baseMetadata.baseDimensions.weight;
+&nbsp;
+    // These dimensions may be updated in the future
+    gs().mowsewears[mowseWearTokenId].dimensions.width = baseMetadata.baseDimensions.width;
+    gs().mowsewears[mowseWearTokenId].dimensions.height = baseMetadata.baseDimensions.height;
+    gs().mowsewears[mowseWearTokenId].dimensions.transform = baseMetadata.baseDimensions.transform;
+    gs().mowsewears[mowseWearTokenId].dimensions.style = baseMetadata.baseDimensions.style;
+    gs().mowsewears[mowseWearTokenId].dimensions.image = baseMetadata.baseDimensions.image;
+    gs().mowsewears[mowseWearTokenId].dimensions.weight = baseMetadata.baseDimensions.weight;
+&nbsp;
+    // random number max 32767 bc bonus stats are int16
+    (uint256 _randomness, uint256 _randomSeed) = _rng.getRandomRange(32767);
+    (uint16 itemRarityIV, uint8 itemRarity, MowseSkillTypes memory mowseSkillTypes) = _setupBonuses(_randomness, uint16(_randomSeed), minRarity);
+    gs().mowsewears[mowseWearTokenId].bonuses.itemRarityIV = itemRarityIV;
+    gs().mowsewears[mowseWearTokenId].bonuses.itemRarity = itemRarity;
+    gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[0] = mowseSkillTypes.charisma;
+    gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[1] = mowseSkillTypes.constitution;
+    gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[2] = mowseSkillTypes.dexterity;
+    gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[3] = mowseSkillTypes.intelligence;
+    gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[4] = mowseSkillTypes.luck;
+    gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[5] = mowseSkillTypes.strength;
+    gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts[6] = mowseSkillTypes.wisdom;
+  }
+  function _updateMowseWearDictionary (
+    uint8 traitType, 
+    string memory traitName,
+    uint16 traitIndex,
+    uint256 dictionaryIndex,
+    bool nonSwappable,
+    bool nonTransferrable,
+    uint16 width,
+    uint16 height,
+    string memory transform,
+    string memory style,
+    string memory image,
+    uint16 weight
+    ) internal {
+      MowseWearMetadata storage metadata = gs().mowseWearDictionary[traitType][traitIndex];
+      metadata.traitType = traitType;
+      metadata.traitName = traitName;
+      metadata.traitIndex = traitIndex;
+      metadata.dictionaryIndex = dictionaryIndex;
+      metadata.nonSwappable = nonSwappable;
+      metadata.nonTransferrable = nonTransferrable;
+      metadata.baseDimensions.width = width;
+      metadata.baseDimensions.height = height;
+      metadata.baseDimensions.transform = transform;
+      metadata.baseDimensions.style = style;
+      metadata.baseDimensions.image = image;
+      metadata.baseDimensions.weight = weight;
+  }
+  function _setupBonuses(uint256 _randomness, uint16 itemRarityIV, uint8 minRarity) internal pure returns (uint16 itemIV, uint8 rarity, MowseSkillTypes memory skillTypes) {
+    uint8 itemRarity;
+    int16[SKILL_TYPE_NUM] memory bonusLevels;
+    if (itemRarityIV &lt; 15000) {
+      itemRarity = 0; // Common       // 1 bonus level
+    } else if (itemRarityIV &lt; 25000) {
+      itemRarity = 1; // Uncommon     // 2 bonus levels
+    } else if (itemRarityIV &lt; 30000) {
+      itemRarity = 2; // Rare         // 4 bonus levels
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (itemRarityIV &lt; 32000) {
+      itemRarity = 3; // Epic         // 8 bonus levels
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (itemRarityIV &lt; 32766) {
+      itemRarity = 4; // Legendary    // 16 bonus levels
+    } else <span class="cstat-no" title="statement not covered" >if (itemRarityIV == 32766) {</span>
+      itemRarity = 5; // 5 is Unique  // 32 bonus levels
+    }
+    // override itemRarity if minRarity is input
+    if (itemRarity &lt; minRarity) {
+      itemRarity = minRarity;
+    }
+    uint256 randomness = _randomness;
+    // Minimum 3 bonuses, max 35
+    for (uint16 i = 0; i &lt; (2**itemRarity + 2); i++) {
+      randomness &gt;&gt;= 2;
+      uint256 bonusIndex = randomness % SKILL_TYPE_NUM;
+      // 75% chance to have positive value, 25% negative
+      uint256 bonusValue = randomness % 4;
+      if (bonusValue &lt; 3) {
+        bonusLevels[bonusIndex]++;
+      } else {
+        bonusLevels[bonusIndex]--;
+      }
+    }
+    MowseSkillTypes memory mowseSkillTypes;
+    mowseSkillTypes.charisma = bonusLevels[0];
+    mowseSkillTypes.constitution = bonusLevels[1];
+    mowseSkillTypes.dexterity = bonusLevels[2];
+    mowseSkillTypes.intelligence = bonusLevels[3];
+    mowseSkillTypes.luck = bonusLevels[4];
+    mowseSkillTypes.strength = bonusLevels[5];
+    mowseSkillTypes.wisdom = bonusLevels[6];
+&nbsp;
+    return (itemRarityIV, itemRarity, mowseSkillTypes);
+  }
+  function _updateMowseStats(uint256 mowseId) internal {
+    int16[SKILL_TYPE_NUM] memory stats;
+    for (uint16 i = 0; i &lt; EQUIPPED_WEARABLE_SLOTS; i++) {
+      // Needs to have a mowsewear equipped
+      if (gs().mowses[mowseId].equippedMowseWearByTokenIds[i] != 0) {
+        for (uint16 j = 0; j &lt; SKILL_TYPE_NUM; j++) {
+          stats[j] += gs().mowsewears[gs().mowses[mowseId].equippedMowseWearByTokenIds[i]].bonuses.baseSkillLevelBoosts[j];
+          stats[j] += gs().mowsewears[gs().mowses[mowseId].equippedMowseWearByTokenIds[i]].bonuses.additionalSkillLevelBoosts[j];
+        }
+      }
+    }
+&nbsp;
+    gs().mowses[mowseId].skillLevelBoosts = stats;
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2023 18:01:37 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

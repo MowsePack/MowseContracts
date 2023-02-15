@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\libraries\LibUtils.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/libraries/</a> LibUtils.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>20/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">420×</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">107×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2272×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2275×</span>
+<span class="cline-any cline-yes">2275×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2275×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.12;
+import "@openzeppelin/contracts/utils/Strings.sol";
+&nbsp;
+library LibUtils {
+  using Strings for uint16;
+  // Convert int to string
+  function int16ToString(int16 i) internal pure returns (string memory){
+    if (i == 0) return "0";
+    bool negative = i &lt; 0;
+    uint16 int16AsUint16 = uint16(abs16(i));
+    return negative ? string(abi.encodePacked('-',int16AsUint16.toString())) : int16AsUint16.toString();
+  }
+  function abs16(int16 i) internal pure returns (int16) {
+    // If i = -32768, absolute value would overflow so set to -32767 first (For more MowseGame purposes this is fine)
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (i == -32768)
+      i = -32767;
+    return i &gt;= 0 ? i : -i;
+  }
+  function getFirstChar(string memory _originString) internal pure returns (string memory _firstChar) {
+    bytes memory firstCharByte = new bytes(1);
+    firstCharByte[0] = bytes(_originString)[0];
+    return string(firstCharByte);
+  }
+  function substring(string memory str, uint startIndex, uint endIndex) internal pure returns (string memory) {
+    bytes memory strBytes = bytes(str);
+    bytes memory result = new bytes(endIndex-startIndex);
+    for(uint i = startIndex; i &lt; endIndex; i++) {
+        result[i-startIndex] = strBytes[i];
+    }
+    return string(result);
+  }
+  function utfStringLength(string memory str) internal pure returns (uint length) {
+    uint i=0;
+    bytes memory string_rep = bytes(str);
+&nbsp;
+    while (i&lt;string_rep.length)
+    {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (string_rep[i]&gt;&gt;7==0)
+            i+=1;
+        else <span class="cstat-no" title="statement not covered" >if (string_rep[i]&gt;&gt;5==bytes1(uint8(0x6)))</span>
+            i+=2;
+        else <span class="cstat-no" title="statement not covered" >if (string_rep[i]&gt;&gt;4==bytes1(uint8(0xE)))</span>
+            i+=3;
+        else <span class="cstat-no" title="statement not covered" >if (string_rep[i]&gt;&gt;3==bytes1(uint8(0x1E)))</span>
+            i+=4;
+        else
+            //For safety
+            i+=1;
+&nbsp;
+        length++;
+    }
+}
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2023 18:01:37 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

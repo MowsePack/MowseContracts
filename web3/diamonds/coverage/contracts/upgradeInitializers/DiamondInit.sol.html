@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\upgradeInitializers\DiamondInit.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/upgradeInitializers/</a> DiamondInit.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.12% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>32/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.62% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>82/84</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+/******************************************************************************\
+* Author: Nick Mudge &lt;nick@perfectabstractions.com&gt; (https://twitter.com/mudgen)
+* EIP-2535 Diamonds: https://eips.ethereum.org/EIPS/eip-2535
+*
+* Implementation of a diamond.
+/******************************************************************************/
+&nbsp;
+import {LibDiamond} from "../libraries/LibDiamond.sol";
+import { IDiamondLoupe } from "../interfaces/IDiamondLoupe.sol";
+import { IDiamondCut } from "../interfaces/IDiamondCut.sol";
+import { IERC173 } from "../interfaces/IERC173.sol";
+import { IERC165 } from "../interfaces/IERC165.sol";
+import { IMowsePRNG } from "../interfaces/IMowsePRNG.sol";
+import { IERC721 } from "@solidstate/contracts/interfaces/IERC721.sol";
+import { IERC721Metadata } from "@solidstate/contracts/token/ERC721/metadata/IERC721Metadata.sol";
+import { IERC721Enumerable } from "@solidstate/contracts/token/ERC721/enumerable/IERC721Enumerable.sol";
+import { AccessControl } from "@solidstate/contracts/access/access_control/AccessControl.sol";
+import { IAccessControl } from "@solidstate/contracts/access/access_control/IAccessControl.sol";
+import { AccessControlStorage } from "@solidstate/contracts/access/access_control/AccessControlStorage.sol";
+import { ERC721MetadataStorage } from "@solidstate/contracts/token/ERC721/metadata/ERC721MetadataStorage.sol";
+&nbsp;
+import "../MowseGold.sol";
+&nbsp;
+import { WithStorage, MowseWearMetadata, MowseWearDimensions, TestPatch, 
+MOWSE_MINTER_ROLE, MOWSEWEAR_MINTER_ROLE, MOWSE_ADMIN_ROLE, MOWSEWEAR_ADMIN_ROLE,
+MOWSEGAME_ADMIN_ROLE } from "../libraries/LibStorage.sol";
+&nbsp;
+struct InitArgs {
+  // MowseGold MOWSE_GOLD_CONTRACT;
+  address MOWSE_GOLD_ADDRESS;
+  address MOWSE_FACET_CONTRACT;
+  address MOWSE_WEAR_FACET_CONTRACT;
+  address MOWSE_AVATAR_CONTRACT;
+  address MOWSE_LOOTBOX_FACET_CONTRACT;
+  address GAME_STORAGE_FACET_CONTRACT;
+  address BACKEND_ADDRESS;
+  address TREASURY_ADDRESS;
+}
+&nbsp;
+contract DiamondInit is WithStorage, AccessControl {
+  function init(InitArgs memory initArgs) external {
+    // adding ERC165 data
+    LibDiamond.DiamondStorage storage ds = LibDiamond.diamondStorage();
+    ds.supportedInterfaces[type(IERC165).interfaceId] = true;
+    ds.supportedInterfaces[type(IDiamondCut).interfaceId] = true;
+    ds.supportedInterfaces[type(IDiamondLoupe).interfaceId] = true;
+    ds.supportedInterfaces[type(IERC173).interfaceId] = true;
+    ds.supportedInterfaces[type(IERC721).interfaceId] = true;
+    ds.supportedInterfaces[type(IERC721Metadata).interfaceId] = true;
+    ds.supportedInterfaces[type(IERC721Enumerable).interfaceId] = true;
+    ds.supportedInterfaces[type(IMowsePRNG).interfaceId] = true;
+    ds.supportedInterfaces[type(IAccessControl).interfaceId] = true;
+&nbsp;
+    // Grant owner default admin role and mowse minter roles
+    _grantRole(AccessControlStorage.DEFAULT_ADMIN_ROLE, msg.sender);
+    _grantRole(MOWSE_ADMIN_ROLE, msg.sender);
+    _grantRole(MOWSEWEAR_MINTER_ROLE, msg.sender);
+    _grantRole(MOWSE_MINTER_ROLE, msg.sender);
+    _grantRole(MOWSEWEAR_ADMIN_ROLE, msg.sender);
+    _grantRole(MOWSEGAME_ADMIN_ROLE, msg.sender);
+&nbsp;
+    _grantRole(MOWSE_ADMIN_ROLE, initArgs.MOWSE_WEAR_FACET_CONTRACT);
+    _grantRole(MOWSE_ADMIN_ROLE, initArgs.MOWSE_AVATAR_CONTRACT);
+    _grantRole(MOWSE_ADMIN_ROLE, initArgs.GAME_STORAGE_FACET_CONTRACT);
+    _grantRole(MOWSE_ADMIN_ROLE, initArgs.MOWSE_GOLD_ADDRESS);
+    _grantRole(MOWSE_MINTER_ROLE, initArgs.MOWSE_AVATAR_CONTRACT);
+    _grantRole(MOWSEWEAR_MINTER_ROLE, initArgs.MOWSE_FACET_CONTRACT);
+    _grantRole(MOWSEWEAR_MINTER_ROLE, initArgs.MOWSE_LOOTBOX_FACET_CONTRACT);
+    _grantRole(MOWSEWEAR_MINTER_ROLE, initArgs.BACKEND_ADDRESS);
+    _grantRole(MOWSEGAME_ADMIN_ROLE, initArgs.BACKEND_ADDRESS);
+    _grantRole(MOWSEWEAR_ADMIN_ROLE, initArgs.MOWSE_AVATAR_CONTRACT);
+&nbsp;
+    gs().diamondAddress = address(this);
+    gs().treasuryAddress = initArgs.TREASURY_ADDRESS;
+    gs().mowsegold = MowseGold(initArgs.MOWSE_GOLD_ADDRESS);
+&nbsp;
+    gs().paused = false;
+    gs().mowseTokenIdCounter = 10001;
+    gs().mowseWearTokenIdCounter = 1;
+&nbsp;
+    gs().mowseLootboxPrime = 8982557377790134965135840418214982363283;
+    gs().mowseLootboxIterations = 1000;
+&nbsp;
+    gs().mowseGamesCount = 1;
+&nbsp;
+    gs().testPatchCount = 1;
+    gs().testPatches[1].testPatchVersion = 1;
+    
+    ERC721MetadataStorage.Layout storage l = ERC721MetadataStorage.layout();
+    l.name = "MowseWear";
+    l.symbol = "MWEAR";
+    
+    string[] storage traitNames = gs().initTraitNames;
+    traitNames.push("backgroundColor");
+    traitNames.push("backgroundFeature");
+    traitNames.push("skinColor");
+    traitNames.push("earType");
+    traitNames.push("shirt");
+    traitNames.push("bodyType");
+    traitNames.push("mouth");
+    traitNames.push("eyeBrow");
+    traitNames.push("eyeType");
+    traitNames.push("eyeWear");
+    traitNames.push("headWear");
+    traitNames.push("jewelry");
+&nbsp;
+    for (uint8 i = 0; i &lt; traitNames.length; i++) {
+      gs().possibleTraitTypes[i] = traitNames[i];
+    }
+&nbsp;
+    // Lootbox
+    gs().mowselootboxes[0].name = "Carton of Colors - Only Background Colors";
+    gs().mowselootboxes[0].price = 800;
+    gs().mowselootboxes[0].active = true;
+    gs().mowselootboxes[1].name = "Footlocker of Features - Only Background Features";
+    gs().mowselootboxes[1].price = 1200;
+    gs().mowselootboxes[2].name = "Sturdy Strongbox - Only Skin Colors";
+    gs().mowselootboxes[2].price = 800;
+    gs().mowselootboxes[3].name = "Wickearwork Box - Only Ear Types";
+    gs().mowselootboxes[3].price = 800;
+    gs().mowselootboxes[4].name = "Pile of Shirts - Only Shirts";
+    gs().mowselootboxes[4].price = 1200;
+    gs().mowselootboxes[5].name = "Musky Creel - Only Body Types";
+    gs().mowselootboxes[5].price = 800;
+    gs().mowselootboxes[6].name = "Stuffed Laundry Machine - Only Mouths";
+    gs().mowselootboxes[6].price = 1000;
+    gs().mowselootboxes[7].name = "Caterpillar Linen Basket - Only Eye Brows";
+    gs().mowselootboxes[7].price = 1000;
+    gs().mowselootboxes[8].name = "Round Hamper - Only Eye Types";
+    gs().mowselootboxes[8].price = 1000;
+    gs().mowselootboxes[9].name = "Cardboard Box - Only Eye Wears";
+    gs().mowselootboxes[9].price = 1000;
+    gs().mowselootboxes[10].name = "Top Load Washer - Only Head Wears";
+    gs().mowselootboxes[10].price = 1200;
+    gs().mowselootboxes[11].name = "Jar of Jewels - Only Jewelry";
+    gs().mowselootboxes[11].price = 1500;
+    gs().mowselootboxes[12].name = "Budget Plastic Hamper - All MowseWear";
+    gs().mowselootboxes[12].price = 500;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function createBaseDimensions(</span>
+    uint16 width, 
+    uint16 height, 
+    string memory transform, 
+    string memory style, 
+    string memory image, 
+    uint16 weight
+    ) internal pure returns (MowseWearDimensions memory) {
+<span class="cstat-no" title="statement not covered" >    return MowseWearDimensions({</span>
+      width: width,
+      height: height,
+      transform: transform,
+      style: style,
+      image: image,
+      weight: weight
+    });
+  }
+<span class="fstat-no" title="function not covered" >  function createMowseWearMetadata(</span>
+    uint8 traitType, 
+    string memory traitName, 
+    uint16 traitIndex, 
+    uint256 dictionaryIndex,
+    bool nonSwappable, 
+    bool nonTransferrable, 
+    MowseWearDimensions memory baseDimensions
+    ) internal pure returns (MowseWearMetadata memory) {
+<span class="cstat-no" title="statement not covered" >    return MowseWearMetadata({</span>
+      traitType: traitType,
+      traitName: traitName,
+      traitIndex: traitIndex,
+      dictionaryIndex: dictionaryIndex,
+      nonSwappable: nonSwappable,
+      nonTransferrable: nonTransferrable,
+      baseDimensions: baseDimensions
+    });
+  }
+&nbsp;
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2023 18:01:37 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

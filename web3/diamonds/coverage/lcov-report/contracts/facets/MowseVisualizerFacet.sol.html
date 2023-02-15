@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\facets\MowseVisualizerFacet.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/facets/</a> MowseVisualizerFacet.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.62% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>41/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>19/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>42/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144×</span>
+<span class="cline-any cline-yes">144×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144×</span>
+<span class="cline-any cline-yes">144×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">95×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+import "hardhat/console.sol";
+/*************************************************************************
+___  ___                       
+|  \/  |                                          ___
+| .  . | _____      _____  ___           _  _  .-'   '-.
+| |\/| |/ _ \ \ /\ / / __|/ _ \         (.)(.)/         \   
+| |  | | (_) \ V  V /\__ \  __/          /@@             ;
+\_|  |_/\___/ \_/\_/ |___/\___|         o_\\-mm-......-mm`~~~~~~~~~~~~~~~~` 
+                               
+/*************************************************************************/
+&nbsp;
+import "@openzeppelin/contracts/utils/Strings.sol";
+&nbsp;
+import { LibDiamond } from "../libraries/LibDiamond.sol";
+import '../libraries/Base64.sol';
+import "../libraries/LibUtils.sol";
+import { WithStorage, MowseWear, MowseWearDimensions, SKILL_TYPE_NUM, EQUIPPED_WEARABLE_SLOTS } from "../libraries/LibStorage.sol"; 
+&nbsp;
+import { MowseFacet } from "./MowseFacet.sol";
+import { MowseWearFacet } from "./MowseWearFacet.sol";
+&nbsp;
+contract MowseVisualizerFacet is WithStorage {
+  using Strings for uint256;
+  using Strings for uint16;
+  using Strings for uint8;
+  using Strings for int16;
+&nbsp;
+  function getMowseTokenURI(uint256 mowseId) external view returns (string memory) {
+    return
+      string(
+        abi.encodePacked(
+          'data:application/json;base64,',
+          Base64.encode(
+            abi.encodePacked(
+              '{',
+              _getNameJSON(mowseId),
+              _getGenerationJSON(mowseId, ','),
+              _getSkillLevelBoostsJSON(mowseId, ','),
+              _getBaseAttributesJSON(','),
+              _getWearableAttributesJSON(mowseId, ','),
+              _getMowseImageJSON(mowseId, ','),
+              '}'
+            )
+          )
+        )
+      );
+  }
+  function getMowseWearTokenURI(uint256 mowseWearTokenId) external view returns (string memory) {
+    return
+      string(
+        abi.encodePacked(
+          'data:application/json;base64,',
+          Base64.encode(
+            abi.encodePacked(
+              '{"name": "',
+              gs().mowsewears[mowseWearTokenId].metadata.traitName,
+              '", "description": "On chain tradeable assets to customize your Mowse.", "attributes":',
+              _getMowseWearAttributeJSON(mowseWearTokenId),
+              ', "image":"',
+              getMowseWearImage(mowseWearTokenId),
+              '"}'
+            )
+          )
+      )
+      );
+  }
+<span class="fstat-no" title="function not covered" >  function getMowseWearImageFromDictionary(uint8 traitType, uint16 traitIndex) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >    return string(</span>
+      abi.encodePacked(
+        'data:image/svg+xml;base64,',
+        Base64.encode(
+          abi.encodePacked(
+            '&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="480" viewBox="0 0 480 480"&gt;&lt;defs&gt;&lt;style&gt;.cls-1{fill:#fff;opacity:0;}&lt;/style&gt;&lt;/defs&gt;&lt;filter id="blurFilter"&gt;&lt;feGaussianBlur stdDeviation="1"/&gt;&lt;/filter&gt;&lt;g id="Layer_2" data-name="Layer 2"&gt;&lt;g id="canvas" data-name="canvas"&gt;&lt;rect class="cls-1" width="480" height="480"/&gt;&lt;/g&gt;',
+              string(_getMowseWearImageJSON(
+                traitType,
+                gs().mowseWearDictionary[traitType][traitIndex].traitName,
+                traitIndex,
+                gs().mowseWearDictionary[traitType][traitIndex].baseDimensions
+              )),
+            '&lt;/g&gt;&lt;/svg&gt;'
+          )
+        )
+      )
+    );
+  }
+  function getMowseWearImage(uint256 mowseWearTokenId) public view returns (string memory) {
+    require(MowseWearFacet(gs().diamondAddress).mowseWearExists(mowseWearTokenId), 'MowseWear does not exist');
+    return string(
+      abi.encodePacked(
+        'data:image/svg+xml;base64,',
+        Base64.encode(
+          abi.encodePacked(
+            '&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="480" viewBox="0 0 480 480"&gt;&lt;defs&gt;&lt;style&gt;.cls-1{fill:#fff;opacity:0;}&lt;/style&gt;&lt;/defs&gt;&lt;filter id="blurFilter"&gt;&lt;feGaussianBlur stdDeviation="1"/&gt;&lt;/filter&gt;&lt;g id="Layer_2" data-name="Layer 2"&gt;&lt;g id="canvas" data-name="canvas"&gt;&lt;rect class="cls-1" width="480" height="480"/&gt;&lt;/g&gt;',
+              string(_getMowseWearImageJSON(
+                gs().mowsewears[mowseWearTokenId].metadata.traitType,
+                gs().mowsewears[mowseWearTokenId].metadata.traitName,
+                gs().mowsewears[mowseWearTokenId].metadata.traitIndex,
+                gs().mowsewears[mowseWearTokenId].dimensions
+              )),
+            '&lt;/g&gt;&lt;/svg&gt;'
+          )
+        )
+      )
+    );
+  }
+  
+  function _getNameJSON(uint256 mowseId) private pure returns (bytes memory) {
+    return abi.encodePacked('"name":"Mowse #', mowseId.toString(), '","token_id":', mowseId.toString());
+  }
+  function _getGenerationJSON(uint256 mowseId, string memory prepend) private view returns (bytes memory) {
+    return abi.encodePacked(prepend, '"generation":', gs().mowses[mowseId].generation.toString());
+  }
+  function _getSkillLevelBoostsJSON(uint256 mowseId, string memory prepend) private view returns (bytes memory) {
+    return abi.encodePacked(
+      prepend,
+      '"stats":{',
+      _convertSkillStaticArrayToParts(gs().mowses[mowseId].skillLevelBoosts),
+      '}');
+  }
+  function _getBaseAttributesJSON(string memory prepend) private view returns (bytes memory) {
+    bytes memory _traitsOne = abi.encodePacked(
+      _getBaseAttributeJSON(0, 0, false),
+      _getBaseAttributeJSON(2, 0, true),
+      _getBaseAttributeJSON(3, 0, true)
+    );
+    bytes memory _traitsTwo = abi.encodePacked(
+      _getBaseAttributeJSON(5, 0, true),
+      _getBaseAttributeJSON(6, 0, true),
+      _getBaseAttributeJSON(8, 0, true)
+    );
+    return abi.encodePacked(prepend, '"base_attributes":[', _traitsOne, _traitsTwo, ']');
+  }
+  function _getBaseAttributeJSON(
+    uint8 traitType,
+    uint16 traitIndex,
+    bool prepend
+  ) internal view returns (bytes memory) {
+    return
+      abi.encodePacked(
+        prepend ? ',' : '',
+        _getMowseWearBaseAttributeJSON(traitType, traitIndex)
+      );
+  }
+  function _getMowseWearBaseAttributeJSON(uint8 traitType, uint16 traitIndex) internal view returns (string memory) {
+    return
+      string(abi.encodePacked(
+        '{"trait_type":"',
+        WithStorage.equippedWearableSlotToString(traitType),
+        '","value":"',
+        gs().mowseWearDictionary[traitType][traitIndex].traitName,
+        '"}'
+      ));
+  }
+  function _getWearableAttributesJSON(uint256 mowseId, string memory prepend) private view returns (bytes memory) {
+    bytes memory _traitsOne = abi.encodePacked(
+      _getAttributeJSON(mowseId, 0, false),
+      _getAttributeJSON(mowseId, 1, true),
+      _getAttributeJSON(mowseId, 2, true)
+    );
+    bytes memory _traitsTwo = abi.encodePacked(
+      _getAttributeJSON(mowseId, 3, true),
+      _getAttributeJSON(mowseId, 4, true),
+      _getAttributeJSON(mowseId, 5, true)
+    );
+    bytes memory _traitsThree = abi.encodePacked(
+      _getAttributeJSON(mowseId, 6, true),
+      _getAttributeJSON(mowseId, 7, true),
+      _getAttributeJSON(mowseId, 8, true)
+    );
+    bytes memory _traitsFour = abi.encodePacked(
+      _getAttributeJSON(mowseId, 9, true),
+      _getAttributeJSON(mowseId, 10, true),
+      _getAttributeJSON(mowseId, 11, true)
+    );
+    // Check if mowse not wearing anything to save gas?
+    uint256[EQUIPPED_WEARABLE_SLOTS] memory emptySlots;
+    if (keccak256(abi.encodePacked(gs().mowses[mowseId].equippedMowseWearByTokenIds)) == keccak256(abi.encodePacked(emptySlots))) {
+      console.log('empty slots'); 
+      return abi.encodePacked(prepend, '"wearing":[]');
+    } 
+    // If wearing, make sure JSON is valid
+    string memory fullWearableJSON = string(abi.encodePacked(_traitsOne, _traitsTwo, _traitsThree, _traitsFour));
+    fullWearableJSON = keccak256(abi.encodePacked(LibUtils.getFirstChar(fullWearableJSON))) == keccak256(abi.encodePacked(",")) ? LibUtils.substring(fullWearableJSON, 1, LibUtils.utfStringLength(fullWearableJSON)) : fullWearableJSON;
+    
+    return abi.encodePacked(prepend, '"wearing":[', fullWearableJSON, ']');
+  }
+  function _getAttributeJSON(
+    uint256 mowseId,
+    uint8 traitType,
+    bool prepend
+  ) internal view returns (bytes memory) {
+    uint256 mowseWearTokenId = gs().mowses[mowseId].equippedMowseWearByTokenIds[traitType];
+    return
+      mowseWearTokenId &gt; 0
+        ? abi.encodePacked(
+          prepend ? ',' : '',
+          _getMowseWearAttributeJSON(mowseWearTokenId)
+        )
+        : bytes('');
+  }
+  
+  function _getMowseWearAttributeJSON(uint256 mowseWearTokenId) internal view returns (string memory) {
+    uint8 traitType = gs().mowsewears[mowseWearTokenId].metadata.traitType;
+    uint16 traitIndex = gs().mowsewears[mowseWearTokenId].metadata.traitIndex;
+&nbsp;
+    return
+      string(abi.encodePacked(
+        '{"id":',
+        mowseWearTokenId.toString(),
+        ',"worn_by":',
+        gs().mowsewears[mowseWearTokenId].equippedBy.toString(),
+        ',"durability":',
+        gs().mowsewears[mowseWearTokenId].durability.toString(),
+        ',"trait_type":"',
+        WithStorage.equippedWearableSlotToString(traitType),
+        '","value":"',
+        gs().mowsewears[mowseWearTokenId].metadata.traitName,
+        '",',
+        _getBonusStatsJSON(
+          gs().mowsewears[mowseWearTokenId].bonuses.itemRarity, 
+          gs().mowsewears[mowseWearTokenId].bonuses.baseSkillLevelBoosts, 
+          gs().mowsewears[mowseWearTokenId].bonuses.additionalSkillLevelBoosts
+        ),
+        ',"frequency":"',
+        _getTraitFrequency(traitType, traitIndex),
+        '"}'
+      )
+    );
+  }
+  function _getTraitFrequency(uint8 traitType, uint16 traitIndex) internal view returns (string memory) {
+    uint256 _frequency = uint32((gs().mowseWearCountByTraitIndex[traitType][traitIndex] * 100000) / gs().mowseWearCountByTraitType[traitType]);
+    uint256 _whole = _frequency / 1000;
+    uint256 _decimals = _frequency % 1000;
+    return 
+      string(
+        abi.encodePacked(
+          _whole.toString(),
+          '.',
+          _decimals &lt; 10 ? '00' : (_decimals &lt; 100 ? '0' : ''),
+          _decimals.toString(),
+          '%'
+        )
+      );
+  }
+  function _getBonusStatsJSON(uint8 itemRarity, int16[SKILL_TYPE_NUM] memory baseSkillLevelBoosts, int16[SKILL_TYPE_NUM] memory additionalSkillLevelBoosts) internal pure returns (string memory) {
+    string memory bonusStats = string(
+        abi.encodePacked(
+          '"item_rarity":"',
+          WithStorage.itemRarityToString(itemRarity),
+          '","base_skill_level_bonus":{',
+          _convertSkillStaticArrayToParts(baseSkillLevelBoosts),
+          '},"additional_skill_level_bonus":{',
+          _convertSkillStaticArrayToParts(additionalSkillLevelBoosts),
+          '}'
+        )
+      );
+    return bonusStats;
+  }
+  function _convertSkillStaticArrayToParts(int16[SKILL_TYPE_NUM] memory skillLevels) internal pure returns (string memory) {
+    return
+      string(
+        abi.encodePacked(
+          '"charisma":',
+          LibUtils.int16ToString(skillLevels[0]),
+          ',"constitution":',
+          LibUtils.int16ToString(skillLevels[1]),
+          ',"dexterity":',
+          LibUtils.int16ToString(skillLevels[2]),
+          ',"intelligence":',
+          LibUtils.int16ToString(skillLevels[3]),
+          ',"luck":',
+          LibUtils.int16ToString(skillLevels[4]),
+          ',"strength":',
+          LibUtils.int16ToString(skillLevels[5]),
+          ',"wisdom":',
+          LibUtils.int16ToString(skillLevels[6]),
+          ''
+        )
+      );
+  }
+  function _getMowseImageJSON(uint256 mowseId, string memory prepend) private view returns (bytes memory) {
+    return abi.encodePacked(prepend, '"image":"data:image/svg+xml;base64,', Base64.encode(_getSVG(mowseId)), '"');
+  }
+  function _getSVG(uint256 mowseId) private view returns (bytes memory) {
+    bytes memory _imagesOne = abi.encodePacked(
+      _getSvgLayer(mowseId, 0, true),
+      _getSvgLayer(mowseId, 1, false),
+      _getSvgLayer(mowseId, 2, true),
+      _getSvgLayer(mowseId, 3, true),
+      _getSvgLayer(mowseId, 4, false),
+      _getSvgLayer(mowseId, 5, true)
+    );
+    bytes memory _imagesTwo = abi.encodePacked(
+      _getSvgLayer(mowseId, 6, true),
+      _getSvgLayer(mowseId, 7, false),
+      _getSvgLayer(mowseId, 8, true),
+      _getSvgLayer(mowseId, 9, false),
+      _getSvgLayer(mowseId, 10, false),
+      _getSvgLayer(mowseId, 11, false)
+    );
+    return
+      abi.encodePacked(
+        '&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="480" viewBox="0 0 480 480"&gt;&lt;defs&gt;&lt;style&gt;&lt;![CDATA[]]&gt;&lt;/style&gt;&lt;filter id="blur" y="-5" height="40"&gt;&lt;feGaussianBlur in="SourceGraphic" stdDeviation="5" y="-"/&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id="Mowse" data-name="Mowse"&gt;',
+        _imagesOne,
+        _imagesTwo,
+        '&lt;/g&gt;&lt;/svg&gt;'
+      );
+    }
+&nbsp;
+    function _getSvgLayer(uint256 mowseId, uint8 traitType, bool defaultIfEmpty) internal view returns (bytes memory) {
+    uint256 mowseWearTokenId = gs().mowses[mowseId].equippedMowseWearByTokenIds[traitType];
+    return
+      mowseWearTokenId &gt; 0
+        ? bytes(_getMowseWearImageJSON(
+            traitType,
+            gs().mowsewears[mowseWearTokenId].metadata.traitName,
+            gs().mowsewears[mowseWearTokenId].metadata.traitIndex,
+            gs().mowsewears[mowseWearTokenId].dimensions
+          ))
+        : (
+          defaultIfEmpty 
+          ? bytes(_getMowseWearImageJSON(
+            traitType,
+            gs().mowseWearDictionary[traitType][0].traitName,
+            0,
+            gs().mowseWearDictionary[traitType][0].baseDimensions
+            )) 
+          : bytes(''));
+    }
+    function _getMowseWearImageJSON(
+      uint8 traitType,
+      string memory traitName,
+      uint16 traitIndex,
+      MowseWearDimensions memory dimensions
+    ) internal pure returns(bytes memory imageJSON) {
+        return bytes (
+              abi.encodePacked(
+                '&lt;g id="',
+                string(abi.encodePacked(traitType.toString(), '_', traitIndex.toString())),
+                '" data-name="',
+                traitName,
+                '"&gt;',
+                (
+                  keccak256(abi.encodePacked(traitName)) == keccak256(abi.encodePacked("None")) ? 
+                    abi.encodePacked('&lt;g&gt;&lt;/g&gt;')
+                  :
+                  abi.encodePacked(
+                      '&lt;image id="',
+                      string(abi.encodePacked(traitType.toString(), '_', traitIndex.toString())),
+                      '_Image" data-name="',
+                      traitName,
+                      ' Image" width="',
+                      dimensions.width.toString(),
+                      '" height="',
+                      dimensions.height.toString(),
+                      '" transform="',
+                      dimensions.transform,
+                      '" style="',
+                      dimensions.style,
+                      '" xlink:href="',
+                      dimensions.image,
+                      '"/&gt;'
+                  )
+                ),
+                '&lt;/g&gt;'
+            )
+        );
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 08 2023 18:01:37 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
